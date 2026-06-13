@@ -1,0 +1,22 @@
+.container {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh; 
+  margin: 0 auto !important;
+  padding: 0 160px; 
+  box-sizing: border-box;
+}
+
+.container .row {
+  max-width: 120px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Se vuoi ridurre lo spazio vuoto che Bootstrap crea sotto le righe */
+.container .row:first-of-type {
+  margin-bottom: 25px; 
+}

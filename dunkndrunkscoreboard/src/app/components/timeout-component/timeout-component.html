@@ -1,0 +1,10 @@
+<!-- <button routerLink="">Tabellone</button> -->
+<div class="score">
+    @if (homeName() !== "Squadra Casa" && visitorName() !== "Squadra Ospite") {
+    <div>
+        {{homeName()}} {{homeScore()}} ({{homeFouls()}}) - {{visitorName()}} {{visitorScore()}} ({{visitorFouls()}})
+        {{minLeft()}}:{{secLeft()}}.{{decLeft()}}
+    </div>
+    }
+</div>
+<sponsor-component></sponsor-component>

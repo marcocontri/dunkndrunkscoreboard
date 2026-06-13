@@ -1,0 +1,46 @@
+<div class="team-wrapper">
+   <div class="team-card">
+      <div class="name-container">
+         @if (!isEditing) {
+         <h2 class="team-name" (click)="modifyVisitorName()">{{visitorSquadName}}</h2>
+         }@else {
+         <input class="team-name-input" type="text" placeholder="Inserisci nome squadra" #newName [value]=""
+            (keyup.enter)="saveNameSquad(newName.value)" (blur)="saveNameSquad(newName.value )">
+         }
+      </div>
+      <div class="bonus-zone">
+         @if (visitorFouls() > 4) {
+         <span class="bonus-badge animate-pulse">BONUS</span>
+         }
+      </div>
+
+      <div class="score-fouls-display">
+         <div class="score-box">
+            <span class="label">PUNTI</span>
+            <button class="score-digit" (click)="incrementVisitorScore()">{{ visitorScore() }}</button>
+         </div>
+         <div class="fouls-box">
+            <span class="label">FALLI</span>
+            <button class="fouls-icon-btn" [class.fouls-danger]="visitorFouls() > 4" (click)="incrementVisitorFouls()">
+               @if (visitorFouls() <= 5) {
+               {{visitorFouls()}}
+               }@else {
+                  <span class="fouls-text-fallback">{{visitorFouls()}}</span>
+               }
+            </button>
+         </div>
+      </div>
+
+      <div class="quick-actions">
+         <button class="btn-minus" (click)="decrementVisitorScore()" title="Diminuisci Punti">-1 Punti</button>
+         <button class="btn-reset" (click)="resetVisitor()" title="Resetta Squadra">
+            <i class="bi bi-arrow-counterclockwise"></i> Reset
+         </button>
+         <button class="btn-minus" (click)="decrementVisitorFouls()" title="Diminuisci Falli">-1 Falli</button>
+      </div>
+   </div>
+
+   <div class="timeout-container">
+      <a class="btn-timeout" routerLink="/timeout">Timeout</a>
+   </div>
+</div>

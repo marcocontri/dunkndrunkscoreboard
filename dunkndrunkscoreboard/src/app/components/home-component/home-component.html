@@ -1,0 +1,46 @@
+<div class="team-wrapper">
+   <div class="team-card">
+      <div class="name-container">
+         @if (!isEditing) {
+         <h2 class="team-name" (click)="modifyHomeName()">{{homeSquadName}}</h2>
+         }@else {
+         <input class="team-name-input" type="text" placeholder="Inserisci nome squadra" #newName [value]=""
+            (keyup.enter)="saveNameSquad(newName.value)" (blur)="saveNameSquad(newName.value )">
+         }
+      </div>
+      <div class="bonus-zone">
+         @if (homeFouls() > 4) {
+         <span class="bonus-badge animate-pulse">BONUS</span>
+         }
+      </div>
+
+      <div class="score-fouls-display">
+         <div class="score-box">
+            <span class="label">PUNTI</span>
+            <button class="score-digit" (click)="incrementHomeScore()">{{ homeScore() }}</button>
+         </div>
+         <div class="fouls-box">
+            <span class="label">FALLI</span>
+            <button class="fouls-icon-btn" [class.fouls-danger]="homeFouls() > 4" (click)="incrementHomeFouls()">
+               @if (homeFouls() <= 5) {
+               {{homeFouls()}}
+               }@else {
+                  <span class="fouls-text-fallback">{{homeFouls()}}</span>
+               }
+            </button>
+         </div>
+      </div>
+
+      <div class="quick-actions">
+         <button class="btn-minus" (click)="decrementHomeScore()" title="Diminuisci Punti">-1 Punti</button>
+         <button class="btn-reset" (click)="resetHome()" title="Resetta Squadra">
+            <i class="bi bi-arrow-counterclockwise"></i> Reset
+         </button>
+         <button class="btn-minus" (click)="decrementHomeFouls()" title="Diminuisci Falli">-1 Falli</button>
+      </div>
+   </div>
+
+   <div class="timeout-container">
+      <a class="btn-timeout" routerLink="/timeout">Timeout</a>
+   </div>
+</div>
