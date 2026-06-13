@@ -1,12 +1,21 @@
 {
   "name": "dunkndrunkscoreboard",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:mac": "ng build --base-href ./ && electron-builder --mac",
+    "build:win": "ng build --base-href ./ && electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.dunkndrunkscoreboard",
+    "files": ["**/*", "dist/dunkndrunkscoreboard/browser/**/*", "main.js"],
+    "mac": { "icon": "build/icon.icns", "target": "dmg" },
+    "win": { "icon": "build/icon.ico", "target": "portable" }
   },
   "private": true,
   "packageManager": "npm@11.13.0",
@@ -26,6 +35,8 @@
     "@angular/build": "^21.2.8",
     "@angular/cli": "^21.2.8",
     "@angular/compiler-cli": "^21.2.0",
+    "electron": "^42.4.0",
+    "electron-builder": "^26.15.3",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
     "typescript": "~5.9.2",

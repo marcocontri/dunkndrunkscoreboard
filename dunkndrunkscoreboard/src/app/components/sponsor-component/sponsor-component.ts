@@ -45,7 +45,7 @@ export class SponsorComponent {
   }
 
   setCurrentImage(): void {
-    const path = `/images/sponsors/${this.sponsors[this.currentIndex]}`;
+    const path = `./images/sponsors/${this.sponsors[this.currentIndex]}`;
     this.currentImage.set(path);
     console.log(path)
   }
