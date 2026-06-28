@@ -13,9 +13,19 @@
   },
   "build": {
     "appId": "com.dunkndrunkscoreboard",
-    "files": ["**/*", "dist/dunkndrunkscoreboard/browser/**/*", "main.js"],
-    "mac": { "icon": "build/icon.icns", "target": "dmg" },
-    "win": { "icon": "build/icon.ico", "target": "portable" }
+    "files": [
+      "**/*",
+      "dist/dunkndrunkscoreboard/browser/**/*",
+      "main.js"
+    ],
+    "mac": {
+      "icon": "build/icon.icns",
+      "target": "dmg"
+    },
+    "win": {
+      "icon": "build/icon.ico",
+      "target": "portable"
+    }
   },
   "private": true,
   "packageManager": "npm@11.13.0",
@@ -43,6 +53,8 @@
     "vitest": "^4.0.8"
   },
   "overrides": {
-    "esbuild": "0.28.1"
+    "esbuild": "0.28.1",
+    "undici": "7.28.0",
+    "@babel/core": "7.29.6"
   }
 }
