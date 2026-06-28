@@ -18,13 +18,23 @@ function createWindow() {
     ? path.join(__dirname, 'dist', 'dunkndrunkscoreboard', 'browser', 'index.html')
     : 'http://localhost:4200';
   isProd ? win.loadFile(indexPath) : win.loadURL(indexPath);
+
+  win.on('closed', () => { win = null; });
 }
-app.on('ready', createWindow);
+app.on('ready', () => {
+  createWindow();
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
+  });
+});
 app.on('window-all-closed', () => {
   session.defaultSession.clearCache().then(() => {
     if (process.platform !== 'darwin') {
       app.quit();
-      process.exit(0);
+    }else{
+      app.quit();
     }
   })
 })

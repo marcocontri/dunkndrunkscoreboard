@@ -19,6 +19,7 @@
       "main.js"
     ],
     "mac": {
+      "identity": null,
       "icon": "build/icon.icns",
       "target": "dmg"
     },

@@ -13,3 +13,6 @@ Premere su 'Timeout' quando una delle due squadre chiama il minuto di sospension
 Per inserire gli sponsor:
 1. Inserire nel file **sponsors.json** (in *public*), i nomi degli sponsor (formato *"nome_sponsor.png"*).
 2. Inserire l'immagine del relativo sponsor in *public/images/sponsors*
+3. Eseguire i comandi *npm run build:mac* e *npm run build:win* per generare i file eseguibili. Tali file sono disponibili nella cartella **dist**.
+4. Su MacOs, dopo aver installato l'applicazione aprire un terminale ed eseguire il comando **xattr -cr /Applications/dunkndrunkscoreboard.app**. Chiudere il terminale e riaprire l'applicazione.
+5. Su Windows basta aprire il file *.exe* ed acconsentire l'esecuzione nella finestra di SmartScreen che compare.
